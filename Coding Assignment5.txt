@@ -1,0 +1,66 @@
+mysql> create database Boat_Management;
+Query OK, 1 row affected (0.74 sec)
+
+mysql> use Boat_Management;
+Database changed
+mysql> create table Sailor(Sid int unique,name varchar(30) not null,dob date not null,gender char(1) check (gender in ('M','F')));
+Query OK, 0 rows affected (1.21 sec)
+
+mysql> create table Boat(Bid int primary key,Btype char(1) check (Btype in 'D','S'),Bname varchar(20) unique,color varchar(10) not null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''D','S'),Bname varchar(20) unique,color varchar(10) not null)' at line 1
+mysql> create table Boat(Bid int primary key,Btype char(1) check (Btype in ('D','S')),Bname varchar(20) unique,color varchar(10) not null);
+Query OK, 0 rows affected (0.56 sec)
+
+mysql> create table Sails(Sid int unique,Bid int refernces Boat(Bid),dot date not null,shift char(2) check (shift in ('FN','AN')));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'refernces Boat(Bid),dot date not null,shift char(2) check (shift in ('FN','AN'))' at line 1
+mysql> create table Sails(Sid int unique,Bid int references Boat(Bid),dot date not null,shift char(2) check (shift in ('FN','AN')));
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> use Boat_Management;
+Database changed
+mysql> insert into Sailor values(10,'Syed','1988-12-21','M');
+Query OK, 1 row affected (0.64 sec)
+
+mysql> insert into Sailor values(20,'Sam','1987-11-20','M'),(30,'Shan','1986-10-18','M');
+Query OK, 2 rows affected (0.11 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from Sailor;
++------+------+------------+--------+
+| Sid  | name | dob        | gender |
++------+------+------------+--------+
+|   10 | Syed | 1988-12-21 | M      |
+|   20 | Sam  | 1987-11-20 | M      |
+|   30 | Shan | 1986-10-18 | M      |
++------+------+------------+--------+
+3 rows in set (0.04 sec)
+
+mysql> insert into Boat values(222,'D','Grace','Blue'),(333,'S','Carpe','Grey'),(444,'S','Catalina','Dark');
+Query OK, 3 rows affected (0.17 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from Boat;
++-----+-------+----------+-------+
+| Bid | Btype | Bname    | color |
++-----+-------+----------+-------+
+| 222 | D     | Grace    | Blue  |
+| 333 | S     | Carpe    | Grey  |
+| 444 | S     | Catalina | Dark  |
++-----+-------+----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into Sails values(10,222,'2023-10-17','FN'),(20,333,'2023-10-19','AN'),(30,444,'2023-10-22','AN');
+Query OK, 3 rows affected (0.10 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from Sails;
++------+------+------------+-------+
+| Sid  | Bid  | dot        | shift |
++------+------+------------+-------+
+|   10 |  222 | 2023-10-17 | FN    |
+|   20 |  333 | 2023-10-19 | AN    |
+|   30 |  444 | 2023-10-22 | AN    |
++------+------+------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> tee d:\Coding Assignment6.txt

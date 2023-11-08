@@ -1,0 +1,134 @@
+mysql> show databases;
++-------------------------------+
+| Database                      |
++-------------------------------+
+| bus_booking_details           |
+| customer_details              |
+| e_commerce                    |
+| employee_details              |
+| employeedetails               |
+| fs19                          |
+| hotel_management              |
+| hotel_management_organization |
+| information_schema            |
+| mysql                         |
+| order_details                 |
+| performance_schema            |
+| player_detail                 |
+| players_detail                |
+| rsp19                         |
+| sakila                        |
+| std                           |
+| stud_details                  |
+| student_details               |
+| students_detail               |
+| students_details              |
+| sys                           |
+| world                         |
++-------------------------------+
+23 rows in set (0.24 sec)
+
+mysql> use e_commerce;
+Database changed
+mysql> create table products(name varchar(30),category varchar(20),price int(5),brand varchar(20),rating float(5,2));
+ERROR 1050 (42S01): Table 'products' already exists
+mysql> create table productlist(name varchar(30),category varchar(20),price int(5),brand varchar(20),rating float(5,2));
+Query OK, 0 rows affected, 2 warnings (0.45 sec)
+
+mysql> desc productlist;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| name     | varchar(30) | YES  |     | NULL    |       |
+| category | varchar(20) | YES  |     | NULL    |       |
+| price    | int         | YES  |     | NULL    |       |
+| brand    | varchar(20) | YES  |     | NULL    |       |
+| rating   | float(5,2)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.08 sec)
+
+mysql> insert into productlist values('Black_shirt','Clothing',900,'Puma','4.8'),('Cut_jeans','Clothing',1200,'Nifty','4.3'),('Bourbon_small','cookies',30,'Britannia','3.5'),('Bourbon_with_extra_cookies','Cookies',50,'Britannia','3.9'),('Kurkure','Snacks',20,'Chips','4.5'),('Healthhire','Protein _powder',500,'Unilever','4.1');
+Query OK, 6 rows affected (0.17 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
++----------------------------+-----------------+-------+-----------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Productlist where brand='Puma';
++-------------+----------+-------+-------+--------+
+| name        | category | price | brand | rating |
++-------------+----------+-------+-------+--------+
+| Black_shirt | Clothing |   900 | Puma  |   4.80 |
++-------------+----------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from productlist where name like'%jeans';
++-----------+----------+-------+-------+--------+
+| name      | category | price | brand | rating |
++-----------+----------+-------+-------+--------+
+| Cut_jeans | Clothing |  1200 | Nifty |   4.30 |
++-----------+----------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from productlist where name like'Bourbon%';
++----------------------------+----------+-------+-----------+--------+
+| name                       | category | price | brand     | rating |
++----------------------------+----------+-------+-----------+--------+
+| Bourbon_small              | cookies  |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies  |    50 | Britannia |   3.90 |
++----------------------------+----------+-------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from productlist where brand='Chips';
++---------+----------+-------+-------+--------+
+| name    | category | price | brand | rating |
++---------+----------+-------+-------+--------+
+| Kurkure | Snacks   |    20 | Chips |   4.50 |
++---------+----------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select name from productlist where name like(%h_r_);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%h_r_)' at line 1
+mysql> select name from productlist where name like'%h_r_';
++-------------+
+| name        |
++-------------+
+| Black_shirt |
+| Healthhire  |
++-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from productlist where price<=1000;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
++----------------------------+-----------------+-------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from productlist where rating>4.0;
++-------------+-----------------+-------+----------+--------+
+| name        | category        | price | brand    | rating |
++-------------+-----------------+-------+----------+--------+
+| Black_shirt | Clothing        |   900 | Puma     |   4.80 |
+| Cut_jeans   | Clothing        |  1200 | Nifty    |   4.30 |
+| Kurkure     | Snacks          |    20 | Chips    |   4.50 |
+| Healthhire  | Protein _powder |   500 | Unilever |   4.10 |
++-------------+-----------------+-------+----------+--------+
+4 rows in set (0.04 sec)
+
+mysql> notee

@@ -1,0 +1,276 @@
+mysql> use e_commerce;
+Database changed
+mysql> select * from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
++----------------------------+-----------------+-------+-----------+--------+
+6 rows in set (0.00 sec)
+
+mysql> insert into productlist values('T_shirt','Clothing',400,'Levis','4.38'),('Fit_jeans','Clothing',450,'Denim','3.85'),('Frock','Clothing',780,'Nike','4.0'),('Readmi_13','Phone',15000,'Readmi','4.5'),('Oneplus_5','Phone',20000,'Oneplus','4.9'),('Cake','Red_Velvet'880,'Cadbuary','4.7');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '880,'Cadbuary','4.7')' at line 1
+mysql> insert into productlist values('T_shirt','Clothing',400,'Levis','4.38'),('Fit_jeans','Clothing',450,'Denim','3.85'),('Frock','Clothing',780,'Nike','4.0'),('Readmi_13','Phone',15000,'Readmi','4.5'),('Oneplus_5','Phone',20000,'Oneplus','4.9'),('Cake','Red_Velvet',880,'Cadbuary','4.7');
+Query OK, 6 rows affected (0.07 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
+| T_shirt                    | Clothing        |   400 | Levis     |   4.38 |
+| Fit_jeans                  | Clothing        |   450 | Denim     |   3.85 |
+| Frock                      | Clothing        |   780 | Nike      |   4.00 |
+| Readmi_13                  | Phone           | 15000 | Readmi    |   4.50 |
+| Oneplus_5                  | Phone           | 20000 | Oneplus   |   4.90 |
+| Cake                       | Red_Velvet      |   880 | Cadbuary  |   4.70 |
++----------------------------+-----------------+-------+-----------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from productlist where category='Clothing' and price<700;
++-----------+----------+-------+-------+--------+
+| name      | category | price | brand | rating |
++-----------+----------+-------+-------+--------+
+| T_shirt   | Clothing |   400 | Levis |   4.38 |
+| Fit_jeans | Clothing |   450 | Denim |   3.85 |
++-----------+----------+-------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from productlist where brand='Denim' and rating>4;
+Empty set (0.00 sec)
+
+mysql> update productlist set rating='4.5' where brand='Denim';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
+| T_shirt                    | Clothing        |   400 | Levis     |   4.38 |
+| Fit_jeans                  | Clothing        |   450 | Denim     |   4.50 |
+| Frock                      | Clothing        |   780 | Nike      |   4.00 |
+| Readmi_13                  | Phone           | 15000 | Readmi    |   4.50 |
+| Oneplus_5                  | Phone           | 20000 | Oneplus   |   4.90 |
+| Cake                       | Red_Velvet      |   880 | Cadbuary  |   4.70 |
++----------------------------+-----------------+-------+-----------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from productlist where brand='Denim' and rating>4;
++-----------+----------+-------+-------+--------+
+| name      | category | price | brand | rating |
++-----------+----------+-------+-------+--------+
+| Fit_jeans | Clothing |   450 | Denim |   4.50 |
++-----------+----------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from productlist where rating='4.0' and price<=1000;
++-------+----------+-------+-------+--------+
+| name  | category | price | brand | rating |
++-------+----------+-------+-------+--------+
+| Frock | Clothing |   780 | Nike  |   4.00 |
++-------+----------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from productlist where rating>'4.0' and price<=1000;
++-------------+-----------------+-------+----------+--------+
+| name        | category        | price | brand    | rating |
++-------------+-----------------+-------+----------+--------+
+| Black_shirt | Clothing        |   900 | Puma     |   4.80 |
+| Kurkure     | Snacks          |    20 | Chips    |   4.50 |
+| Healthhire  | Protein _powder |   500 | Unilever |   4.10 |
+| T_shirt     | Clothing        |   400 | Levis    |   4.38 |
+| Fit_jeans   | Clothing        |   450 | Denim    |   4.50 |
+| Cake        | Red_Velvet      |   880 | Cadbuary |   4.70 |
++-------------+-----------------+-------+----------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from productlist where rating>3.6 and price<1000 and brand='Puma';
++-------------+----------+-------+-------+--------+
+| name        | category | price | brand | rating |
++-------------+----------+-------+-------+--------+
+| Black_shirt | Clothing |   900 | Puma  |   4.80 |
++-------------+----------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from productlist where brand='Puma' or brand='Denim' or brand='Nike';
++-------------+----------+-------+-------+--------+
+| name        | category | price | brand | rating |
++-------------+----------+-------+-------+--------+
+| Black_shirt | Clothing |   900 | Puma  |   4.80 |
+| Fit_jeans   | Clothing |   450 | Denim |   4.50 |
+| Frock       | Clothing |   780 | Nike  |   4.00 |
++-------------+----------+-------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from productlist where (brand='Redmi' and rating>4) or brand='Oneplus';
++-----------+----------+-------+---------+--------+
+| name      | category | price | brand   | rating |
++-----------+----------+-------+---------+--------+
+| Oneplus_5 | Phone    | 20000 | Oneplus |   4.90 |
++-----------+----------+-------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from productlist where (brand='Readmi' and rating>4) or brand='Oneplus';
++-----------+----------+-------+---------+--------+
+| name      | category | price | brand   | rating |
++-----------+----------+-------+---------+--------+
+| Readmi_13 | Phone    | 15000 | Readmi  |   4.50 |
+| Oneplus_5 | Phone    | 20000 | Oneplus |   4.90 |
++-----------+----------+-------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from productlist where (brand='Cadbuary' or brand='Britannia') and name='Cake'and rating>'4.0';
++------+------------+-------+----------+--------+
+| name | category   | price | brand    | rating |
++------+------------+-------+----------+--------+
+| Cake | Red_Velvet |   880 | Cadbuary |   4.70 |
++------+------------+-------+----------+--------+
+1 row in set (0.00 sec)
+
+mysql> select name=''
+    -> select name='Cake' as 'Cakes'from productlist;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select name='Cake' as 'Cakes'from productlist' at line 2
+mysql> select name='Cake' as 'Cakes'from productlist;
++-------+
+| Cakes |
++-------+
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     0 |
+|     1 |
++-------+
+12 rows in set (0.00 sec)
+
+mysql> select*from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
+| T_shirt                    | Clothing        |   400 | Levis     |   4.38 |
+| Fit_jeans                  | Clothing        |   450 | Denim     |   4.50 |
+| Frock                      | Clothing        |   780 | Nike      |   4.00 |
+| Readmi_13                  | Phone           | 15000 | Readmi    |   4.50 |
+| Oneplus_5                  | Phone           | 20000 | Oneplus   |   4.90 |
+| Cake                       | Red_Velvet      |   880 | Cadbuary  |   4.70 |
++----------------------------+-----------------+-------+-----------+--------+
+12 rows in set (0.00 sec)
+
+mysql> update productlist set name='Cakes' where brand='Cadbuary';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Black_shirt                | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
+| T_shirt                    | Clothing        |   400 | Levis     |   4.38 |
+| Fit_jeans                  | Clothing        |   450 | Denim     |   4.50 |
+| Frock                      | Clothing        |   780 | Nike      |   4.00 |
+| Readmi_13                  | Phone           | 15000 | Readmi    |   4.50 |
+| Oneplus_5                  | Phone           | 20000 | Oneplus   |   4.90 |
+| Cakes                      | Red_Velvet      |   880 | Cadbuary  |   4.70 |
++----------------------------+-----------------+-------+-----------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from productlist where (brand='Puma' and rating>3.5) or (brand='Denim' and rating>'4.0');
++-------------+----------+-------+-------+--------+
+| name        | category | price | brand | rating |
++-------------+----------+-------+-------+--------+
+| Black_shirt | Clothing |   900 | Puma  |   4.80 |
+| Fit_jeans   | Clothing |   450 | Denim |   4.50 |
++-------------+----------+-------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select name from productlist where (brand='Puma' or brand='Nike' or brand='Levis') and name!=Black_shirt;
+ERROR 1054 (42S22): Unknown column 'Black_shirt' in 'where clause'
+mysql> select name from productlist where (brand='Puma' or brand='Nike' or brand='Levis') and name like'%shirt';
++-------------+
+| name        |
++-------------+
+| Black_shirt |
+| T_shirt     |
++-------------+
+2 rows in set (0.00 sec)
+
+mysql> select name from productlist where (brand='Puma' or brand='Nike' or brand='Levis');
++-------------+
+| name        |
++-------------+
+| Black_shirt |
+| T_shirt     |
+| Frock       |
++-------------+
+3 rows in set (0.00 sec)
+
+mysql> update productlist set name='Shirt' where brand='Puma';
+Query OK, 1 row affected (0.35 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from productlist;
++----------------------------+-----------------+-------+-----------+--------+
+| name                       | category        | price | brand     | rating |
++----------------------------+-----------------+-------+-----------+--------+
+| Shirt                      | Clothing        |   900 | Puma      |   4.80 |
+| Cut_jeans                  | Clothing        |  1200 | Nifty     |   4.30 |
+| Bourbon_small              | cookies         |    30 | Britannia |   3.50 |
+| Bourbon_with_extra_cookies | Cookies         |    50 | Britannia |   3.90 |
+| Kurkure                    | Snacks          |    20 | Chips     |   4.50 |
+| Healthhire                 | Protein _powder |   500 | Unilever  |   4.10 |
+| T_shirt                    | Clothing        |   400 | Levis     |   4.38 |
+| Fit_jeans                  | Clothing        |   450 | Denim     |   4.50 |
+| Frock                      | Clothing        |   780 | Nike      |   4.00 |
+| Readmi_13                  | Phone           | 15000 | Readmi    |   4.50 |
+| Oneplus_5                  | Phone           | 20000 | Oneplus   |   4.90 |
+| Cakes                      | Red_Velvet      |   880 | Cadbuary  |   4.70 |
++----------------------------+-----------------+-------+-----------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from productlist where (brand='Puma' or brand='Nike' or brand='Levis') and name like'%shirt';
++---------+----------+-------+-------+--------+
+| name    | category | price | brand | rating |
++---------+----------+-------+-------+--------+
+| Shirt   | Clothing |   900 | Puma  |   4.80 |
+| T_shirt | Clothing |   400 | Levis |   4.38 |
++---------+----------+-------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> tee
+Currently logging to file 'd:\Querycoding2.txt'
+mysql> notee

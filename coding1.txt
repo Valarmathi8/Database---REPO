@@ -1,0 +1,120 @@
+mysql> create database student_details;
+ERROR 1007 (HY000): Can't create database 'student_details'; database exists
+mysql> create database stud_details;
+ERROR 1007 (HY000): Can't create database 'stud_details'; database exists
+mysql> create database std;
+Query OK, 1 row affected (0.26 sec)
+
+mysql> use std;
+Database changed
+mysql> create table student(name varchar(200),age int(2),score int(3));
+Query OK, 0 rows affected, 2 warnings (0.84 sec)
+
+mysql> desc student;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| name  | varchar(200) | YES  |     | NULL    |       |
+| age   | int          | YES  |     | NULL    |       |
+| score | int          | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.07 sec)
+
+mysql> create database customer_details;
+Query OK, 1 row affected (0.09 sec)
+
+mysql> use customer_details;
+Database changed
+mysql> create table customer(customer_id int(5),first_name varchar(20),last_name varchar(20),date_of_birth date,address text,phone_number int(11));
+Query OK, 0 rows affected, 2 warnings (0.23 sec)
+
+mysql> desc customer_details;
+ERROR 1146 (42S02): Table 'customer_details.customer_details' doesn't exist
+mysql> desc customer;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| customer_id   | int         | YES  |     | NULL    |       |
+| first_name    | varchar(20) | YES  |     | NULL    |       |
+| last_name     | varchar(20) | YES  |     | NULL    |       |
+| date_of_birth | date        | YES  |     | NULL    |       |
+| address       | text        | YES  |     | NULL    |       |
+| phone_number  | int         | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> create database order_details;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> use order_details;
+Database changed
+mysql> create table order;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order' at line 1
+mysql> create table order(order_id int(10),customer_id int(10),order_datetime datetime,shipped_datetime datetime,total_amount float(8,2));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(10),customer_id int(10),order_datetime datetime,shipped_datet' at line 1
+mysql> create table order(order_id int(10),customer_id int(10),order_datetime datetime,shipped_datetime datetime,total_amount float(8));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order(order_id int(10),customer_id int(10),order_datetime datetime,shipped_datet' at line 1
+mysql> create table orders(order_id int(10),customer_id int(10),order_datetime datetime,shipped_datetime datetime,total_amount float(8));
+Query OK, 0 rows affected, 2 warnings (0.20 sec)
+
+mysql> desc orders;
++------------------+----------+------+-----+---------+-------+
+| Field            | Type     | Null | Key | Default | Extra |
++------------------+----------+------+-----+---------+-------+
+| order_id         | int      | YES  |     | NULL    |       |
+| customer_id      | int      | YES  |     | NULL    |       |
+| order_datetime   | datetime | YES  |     | NULL    |       |
+| shipped_datetime | datetime | YES  |     | NULL    |       |
+| total_amount     | float    | YES  |     | NULL    |       |
++------------------+----------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> create database player_detail;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> use player_detail;
+Database changed
+mysql> create table player(name varchar(10),age int(2),score int(3));
+Query OK, 0 rows affected, 2 warnings (0.21 sec)
+
+mysql> insert into player values('Ram',28,30);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from player;
++------+------+-------+
+| name | age  | score |
++------+------+-------+
+| Ram  |   28 |    30 |
++------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> create database players_detail;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> use players_detail;
+Database changed
+mysql> create table players(name varchar(10),age int(2), score int(3));
+Query OK, 0 rows affected, 2 warnings (0.19 sec)
+
+mysql> insert into players values('Suresh',21,70),('Venkat',21,43);
+Query OK, 2 rows affected (0.08 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from players;
++--------+------+-------+
+| name   | age  | score |
++--------+------+-------+
+| Suresh |   21 |    70 |
+| Venkat |   21 |    43 |
++--------+------+-------+
+2 rows in set (0.02 sec)
+
+mysql> select * from players where name='Suresh';
++--------+------+-------+
+| name   | age  | score |
++--------+------+-------+
+| Suresh |   21 |    70 |
++--------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> notee

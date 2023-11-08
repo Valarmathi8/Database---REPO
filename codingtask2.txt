@@ -1,0 +1,134 @@
+mysql> create database students_details;
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  use students_details;
+Database changed
+mysql> create table students(name varchar(25),age int(2),score int(3));
+Query OK, 0 rows affected, 2 warnings (0.27 sec)
+
+mysql> insert into students values('Raj',26,120);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from students;
++------+------+-------+
+| name | age  | score |
++------+------+-------+
+| Raj  |   26 |   120 |
++------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into students values('Ram',28,125),('Charan',25,173),('Ravan',20,152);
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++--------+------+-------+
+| name   | age  | score |
++--------+------+-------+
+| Raj    |   26 |   120 |
+| Ram    |   28 |   125 |
+| Charan |   25 |   173 |
+| Ravan  |   20 |   152 |
++--------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into students values('Shyam',28,130),('David',27,135);
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++--------+------+-------+
+| name   | age  | score |
++--------+------+-------+
+| Raj    |   26 |   120 |
+| Ram    |   28 |   125 |
+| Charan |   25 |   173 |
+| Ravan  |   20 |   152 |
+| Shyam  |   28 |   130 |
+| David  |   27 |   135 |
++--------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> update students set age=30 where name='Shyam';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from students;
++--------+------+-------+
+| name   | age  | score |
++--------+------+-------+
+| Raj    |   26 |   120 |
+| Ram    |   28 |   125 |
+| Charan |   25 |   173 |
+| Ravan  |   20 |   152 |
+| Shyam  |   30 |   130 |
+| David  |   27 |   135 |
++--------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql>  delete from students where name='David';
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from students;
++--------+------+-------+
+| name   | age  | score |
++--------+------+-------+
+| Raj    |   26 |   120 |
+| Ram    |   28 |   125 |
+| Charan |   25 |   173 |
+| Ravan  |   20 |   152 |
+| Shyam  |   30 |   130 |
++--------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table students add column strike_rate float(4,2);
+Query OK, 0 rows affected, 1 warning (0.54 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from students;
++--------+------+-------+-------------+
+| name   | age  | score | strike_rate |
++--------+------+-------+-------------+
+| Raj    |   26 |   120 |        NULL |
+| Ram    |   28 |   125 |        NULL |
+| Charan |   25 |   173 |        NULL |
+| Ravan  |   20 |   152 |        NULL |
+| Shyam  |   30 |   130 |        NULL |
++--------+------+-------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select name,age from students;
++--------+------+
+| name   | age  |
++--------+------+
+| Raj    |   26 |
+| Ram    |   28 |
+| Charan |   25 |
+| Ravan  |   20 |
+| Shyam  |   30 |
++--------+------+
+5 rows in set (0.00 sec)
+
+mysql> alter table students rename column name to full_name;
+Query OK, 0 rows affected (0.45 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from students;
++-----------+------+-------+-------------+
+| full_name | age  | score | strike_rate |
++-----------+------+-------+-------------+
+| Raj       |   26 |   120 |        NULL |
+| Ram       |   28 |   125 |        NULL |
+| Charan    |   25 |   173 |        NULL |
+| Ravan     |   20 |   152 |        NULL |
+| Shyam     |   30 |   130 |        NULL |
++-----------+------+-------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> truncate table students;
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> select * from students;
+Empty set (0.00 sec)
+
+mysql> notee
