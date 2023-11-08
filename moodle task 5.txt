@@ -1,0 +1,204 @@
+db.createCollection("students")
+{ ok: 1 }
+test> use students
+switched to db students
+students>  db.students.insertMany([{_id:1,name:'bala',course:'B.E ECE'},{_id:2,namename:'suvi',course:'B.E CSE'}, {_id:3,name:'ram',course:'B.E EEE'}])
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2, '2': 3 } }
+students> db.students.find()
+[
+  { _id: 1, name: 'bala', course: 'B.E ECE' },
+  { _id: 2, name: 'suvi', course: 'B.E CSE' },
+  { _id: 3, name: 'ram', course: 'B.E EEE' }
+]
+students> db.students.findAndModify({query:{name:'bala',course:'B.E ECE'},update:{$$set:{address:{houseno:2,city:'covai'}}},upsert:true})
+{ _id: 1, name: 'bala', course: 'B.E ECE' }
+students> db.students.findAndModify({query:{name:'bala',course:'B.E ECE'},update:{$set:{address:{houseno:2,city:'covai'}}},upsert:true})
+{
+  _id: 1,
+  name: 'bala',
+  course: 'B.E ECE',
+  address: { houseno: 2, city: 'covai' }
+}
+students> db.students.find()
+[
+  {
+    _id: 1,
+    name: 'bala',
+    course: 'B.E ECE',
+    address: { houseno: 2, city: 'covai' }
+  },
+  { _id: 2, name: 'suvi', course: 'B.E CSE' },
+  { _id: 3, name: 'ram', course: 'B.E EEE' }
+]
+students> db.createCollection("products")
+{ ok: 1 }
+students> use products
+switched to db products
+products> db.products.insertMany([{_id:1,product_id:103,product_name:'VIVO Y35',priproducts> db.products.insertMany([{_id:1,product_id:103,product_name:'VIVO Y35',price:20000}, {_id:2,product_id:105,product_name:'OPPO 12',price:90000},{_id:3,product_id:105,product_name:'iphone7',price:80000}, {_id:4,product_id:107,product_name:'galaxy 35',price:10000}])
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4 } }
+products> db.products.find()
+[
+  { _id: 1, product_id: 103, product_name: 'VIVO Y35', price: 20000 },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12', price: 90000 },
+  { _id: 3, product_id: 105, product_name: 'iphone7', price: 80000 },
+  { _id: 4, product_id: 107, product_name: 'galaxy 35', price: 10000 }
+]
+products> db.products.findAndModify({query:{product_id:103},update:{$set:{price:32999.99}},upsert:true})
+{ _id: 1, product_id: 103, product_name: 'VIVO Y35', price: 20000 }
+products> db.products.find()
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99
+  },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12', price: 90000 },
+  { _id: 3, product_id: 105, product_name: 'iphone7', price: 80000 },
+  { _id: 4, product_id: 107, product_name: 'galaxy 35', price: 10000 }
+]
+products> db.products.aggregate([{$project:{_id:1,product_id:1,product_name:1,priceprice:1,"added price":{$add:["$price",1500]}}}])
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99,
+    'added price': 34499.99
+  },
+  {
+    _id: 2,
+    product_id: 105,
+    product_name: 'OPPO 12',
+    price: 90000,
+    'added price': 91500
+  },
+  {
+    _id: 3,
+    product_id: 105,
+    product_name: 'iphone7',
+    price: 80000,
+    'added price': 81500
+  },
+  {
+    _id: 4,
+    product_id: 107,
+    product_name: 'galaxy 35',
+    price: 10000,
+    'added price': 11500
+  }
+]
+products> db.products.updateMany({product_id:107},{$max:{price:50000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+products> db.products.find()
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99
+  },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12', price: 90000 },
+  { _id: 3, product_id: 105, product_name: 'iphone7', price: 80000 },
+  { _id: 4, product_id: 107, product_name: 'galaxy 35', price: 50000 }
+]
+products> db.products.updateMany({product_id:105},{$mul:{price:3}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+products> db.products.find()
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99
+  },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12', price: 270000 },
+  { _id: 3, product_id: 105, product_name: 'iphone7', price: 240000 },
+  { _id: 4, product_id: 107, product_name: 'galaxy 35', price: 50000 }
+]
+products> db.products.updateMany({product_id:105},{$unset:{price:""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+products> db.products.find()
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99
+  },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12' },
+  { _id: 3, product_id: 105, product_name: 'iphone7' },
+  { _id: 4, product_id: 107, product_name: 'galaxy 35', price: 50000 }
+]
+products> db.products.updateMany({product_id:105},{$set:{price:25789.60}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+products> db.products.find()
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99
+  },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12', price: 25789.6 },
+  { _id: 3, product_id: 105, product_name: 'iphone7', price: 25789.6 },
+  { _id: 4, product_id: 107, product_name: 'galaxy 35', price: 50000 }
+]
+products> db.products.findAndModify({query:{product_id:107},update:{$set:{price:78000.23}},upsert:true})
+{ _id: 4, product_id: 107, product_name: 'galaxy 35', price: 50000 }
+products> db.products.find()
+[
+  {
+    _id: 1,
+    product_id: 103,
+    product_name: 'VIVO Y35',
+    price: 32999.99
+  },
+  { _id: 2, product_id: 105, product_name: 'OPPO 12', price: 25789.6 },
+  { _id: 3, product_id: 105, product_name: 'iphone7', price: 25789.6 },
+  {
+    _id: 4,
+    product_id: 107,
+    product_name: 'galaxy 35',
+    price: 78000.23
+  }
+]
+products> db.products.updateMany({},{$rename:{'product_id':'proid'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+products> db.products.find()
+[
+  { _id: 1, product_name: 'VIVO Y35', price: 32999.99, proid: 103 },
+  { _id: 2, product_name: 'OPPO 12', price: 25789.6, proid: 105 },
+  { _id: 3, product_name: 'iphone7', price: 25789.6, proid: 105 },
+  { _id: 4, product_name: 'galaxy 35', price: 78000.23, proid: 107 }
+]

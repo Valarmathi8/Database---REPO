@@ -1,0 +1,279 @@
+Please enter a MongoDB connection string (Default: mongodb://localhost/):
+
+Current Mongosh Log ID: 6539d85a37e822702520cc82
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.2
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.2
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-10-20T08:51:44.208+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> db.createCollection('Student');
+{ ok: 1 }
+test> use Student
+switched to db Student
+Student> db.Student.insertMany([{Name:'Mathi',Age:'21',Score:'88.8'},{Name:'Aasha',Age:'22',Score:'60.5'},{Name:'Brindha',Age:'23',Score:'72.8'},{Name:'Charu',Age:'23',Score:'77.7'},{Name:'Deepa',Age:'22',Score:'40.8'},{Name:'Elima',Age:'23',Score:'56.9'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6539d9ad37e822702520cc83"),
+    '1': ObjectId("6539d9ad37e822702520cc84"),
+    '2': ObjectId("6539d9ad37e822702520cc85"),
+    '3': ObjectId("6539d9ad37e822702520cc86"),
+    '4': ObjectId("6539d9ad37e822702520cc87"),
+    '5': ObjectId("6539d9ad37e822702520cc88")
+  }
+}
+Student> db.createCollection('Customer');
+{ ok: 1 }
+Student> use Customer
+switched to db Customer
+Customer> db.Customer.insertMany([{Customerid:11,First_name:'Arul',Last_name:'prakash',Dob:'2004-05-12',Address:'Cbe',Phone_number:8270875660},{Customerid:22,First_name:'Banu',Last_name:'rekha',Dob:'2000-06-22',Address:'Trichy',Phone_number:8270875661},{Customerid:33,First_name:'Charu',Last_name:'latha',Dob:'1999-02-08',Address:'Tiruppur',Phone_number:8270875662},{Customerid:44,First_name:'Deepa',Last_name:'Varsha',Dob:'1990-03-10',Address:'Madhurai',Phone_number:8270875663},{Customerid:55,First_name:'Elizabeth',Last_name:'rani',Dob:'1992-06-29',Address:'Salem',Phone_number:8270875664},{Customerid:66,First_name:'Farina',Last_name:'sain',Dob:'1995-07-25',Address:'Salem',Phone_number:8270875668}])
+{
+  acknowledged: true,
+  insertedIds: {
+Employee>
+    '1': ObjectId("6539db6f37e822702520cc8a"),
+    '2': ObjectId("6539db6f37e822702520cc8b"),
+    '3': ObjectId("6539db6f37e822702520cc8c"),
+    '4': ObjectId("6539db6f37e822702520cc8d"),
+    '5': ObjectId("6539db6f37e822702520cc8e")
+  }
+}
+Customer> db.createCollection('Order_det');
+{ ok: 1 }
+Customer> use Order_det
+Order_det> db.Order_details.insertOne([{Orderid:101,Customerid:11,Order_datetime:new Date("2023-10-11T19:17:16.123Z"),Shipped_datetime:new Date("2023-10-13T20:18:17.234Z"),Total_amount:'8050.23'},{Orderid:102,Customerid:22,Order_datetime:new Date("2023-10-12T18:20:16.123Z"),Shipped_datetime:new Date("2023-10-14T19:18:17.234Z"),Total_amount:'9000.23'},{Orderid:103,Customerid:33,Order_datetime:new Date("2023-10-13T21:11:16.123Z"),Shipped_datetime:new Date("2023-10-15T22:18:17.234Z"),Total_amount:'7500.23'},{Orderid:104,Customerid:44,Order_datetime:new Date("2023-10-18T07:17:16.123Z"),Shipped_datetime:new Date("2023-10-21T09:18:17.234Z"),Total_amount:'10000.23'},{Orderid:105,Customerid:55,Order_datetime:new Date("2023-10-22T01:17:16.123Z"),Shipped_datetime:new Date("2023-10-24T08:18:17.234Z"),Total_amount:'5000.23'},{Orderid:106,Customerid:66,Order_datetime:new Date("2023-10-23T12:17:16.123Z"),Shipped_datetime:new Date("2023-10-25T11:18:17.234Z"),Total_amount:'7890.23'}])
+{
+  acknowledged: true,
+  insertedId: ObjectId("6539dd4537e822702520cc8f")
+}
+Order_det> db.Student.find().pretty()
+
+Order_det> use Student
+switched to db Student
+Student> db.Student.find().pretty()
+[
+  {
+    _id: ObjectId("6539d9ad37e822702520cc83"),
+    Name: 'Mathi',
+    Age: '21',
+    Score: '88.8'
+  },
+  {
+    _id: ObjectId("6539d9ad37e822702520cc84"),
+    Name: 'Aasha',
+    Age: '22',
+    Score: '60.5'
+  },
+  {
+    _id: ObjectId("6539d9ad37e822702520cc85"),
+    Name: 'Brindha',
+    Age: '23',
+    Score: '72.8'
+  },
+  {
+    _id: ObjectId("6539d9ad37e822702520cc86"),
+    Name: 'Charu',
+    Age: '23',
+    Score: '77.7'
+  },
+  {
+    _id: ObjectId("6539d9ad37e822702520cc87"),
+    Name: 'Deepa',
+    Age: '22',
+    Score: '40.8'
+  },
+  {
+    _id: ObjectId("6539d9ad37e822702520cc88"),
+    Name: 'Elima',
+    Age: '23',
+    Score: '56.9'
+  }
+]
+Student> use Customer
+switched to db Customer
+Customer> db.Customer.find().pretty()
+[
+  {
+    _id: ObjectId("6539db6f37e822702520cc89"),
+    Customerid: 11,
+    First_name: 'Arul',
+    Last_name: 'prakash',
+    Dob: '2004-05-12',
+    Address: 'Cbe',
+    Phone_number: 8270875660
+  },
+  {
+    _id: ObjectId("6539db6f37e822702520cc8a"),
+    Customerid: 22,
+    First_name: 'Banu',
+    Last_name: 'rekha',
+    Dob: '2000-06-22',
+    Address: 'Trichy',
+    Phone_number: 8270875661
+  },
+  {
+    _id: ObjectId("6539db6f37e822702520cc8b"),
+    Customerid: 33,
+    First_name: 'Charu',
+    Last_name: 'latha',
+    Dob: '1999-02-08',
+    Address: 'Tiruppur',
+    Phone_number: 8270875662
+  },
+  {
+    _id: ObjectId("6539db6f37e822702520cc8c"),
+    Customerid: 44,
+    First_name: 'Deepa',
+    Last_name: 'Varsha',
+    Dob: '1990-03-10',
+    Address: 'Madhurai',
+    Phone_number: 8270875663
+  },
+  {
+    _id: ObjectId("6539db6f37e822702520cc8d"),
+    Customerid: 55,
+    First_name: 'Elizabeth',
+    Last_name: 'rani',
+    Dob: '1992-06-29',
+    Address: 'Salem',
+    Phone_number: 8270875664
+  },
+  {
+    _id: ObjectId("6539db6f37e822702520cc8e"),
+    Customerid: 66,
+    First_name: 'Farina',
+    Last_name: 'sain',
+    Dob: '1995-07-25',
+    Address: 'Salem',
+    Phone_number: 8270875668
+  }
+]
+Customer> use Order_det
+switched to db Order_det
+Order_det> db.Order_det.find().pretty()
+
+Order_det> db.Order_details.insertMany([{Orderid:101,Customerid:11,Order_datetime:new Date("2023-10-11T19:17:16.123Z"),Shipped_datetime:new Date("2023-10-13T20:18:17.234Z"),Total_amount:'8050.23'},{Orderid:102,Customerid:22,Order_datetime:new Date("2023-10-12T18:20:16.123Z"),Shipped_datetime:new Date("2023-10-14T19:18:17.234Z"),Total_amount:'9000.23'},{Orderid:103,Customerid:33,Order_datetime:new Date("2023-10-13T21:11:16.123Z"),Shipped_datetime:new Date("2023-10-15T22:18:17.234Z"),Total_amount:'7500.23'},{Orderid:104,Customerid:44,Order_datetime:new Date("2023-10-18T07:17:16.123Z"),Shipped_datetime:new Date("2023-10-21T09:18:17.234Z"),Total_amount:'10000.23'},{Orderid:105,Customerid:55,Order_datetime:new Date("2023-10-22T01:17:16.123Z"),Shipped_datetime:new Date("2023-10-24T08:18:17.234Z"),Total_amount:'5000.23'},{Orderid:106,Customerid:66,Order_datetime:new Date("2023-10-23T12:17:16.123Z"),Shipped_datetime:new Date("2023-10-25T11:18:17.234Z"),Total_amount:'7890.23'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6539de9637e822702520cc90"),
+    '1': ObjectId("6539de9637e822702520cc91"),
+    '2': ObjectId("6539de9637e822702520cc92"),
+    '3': ObjectId("6539de9637e822702520cc93"),
+    '4': ObjectId("6539de9637e822702520cc94"),
+    '5': ObjectId("6539de9637e822702520cc95")
+  }
+}
+Order_det> db.Order_det.find().pretty()
+
+Order_det> use Order_details
+switched to db Order_details
+Order_details> db.Order_details.find().pretty()
+
+Order_details> db.Order_details.find()
+
+Order_details> db.Order_details.drop()
+Order_det> db.Order_det.insertMany([{Orderid:101,Customerid:11,Order_datetime:new Date("2023-10-11T19:17:16.123Z"),Shipped_datetime:new Date("2023-10-13T20:18:17.234Z"),Total_amount:'8050.23'},{Orderid:102,Customerid:22,Order_datetime:new Date("2023-10-12T18:20:16.123Z"),Shipped_datetime:new Date("2023-10-14T19:18:17.234Z"),Total_amount:'9000.23'},{Orderid:103,Customerid:33,Order_datetime:new Date("2023-10-13T21:11:16.123Z"),Shipped_datetime:new Date("2023-10-15T22:18:17.234Z"),Total_amount:'7500.23'},{Orderid:104,Customerid:44,Order_datetime:new Date("2023-10-18T07:17:16.123Z"),Shipped_datetime:new Date("2023-10-21T09:18:17.234Z"),Total_amount:'10000.23'},{Orderid:105,Customerid:55,Order_datetime:new Date("2023-10-22T01:17:16.123Z"),Shipped_datetime:new Date("2023-10-24T08:18:17.234Z"),Total_amount:'5000.23'},{Orderid:106,Customerid:66,Order_datetime:new Date("2023-10-23T12:17:16.123Z"),Shipped_datetime:new Date("2023-10-25T11:18:17.234Z"),Total_amount:'7890.23'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6539e43a37e822702520cc96"),
+    '1': ObjectId("6539e43a37e822702520cc97"),
+    '2': ObjectId("6539e43a37e822702520cc98"),
+    '3': ObjectId("6539e43a37e822702520cc99"),
+    '4': ObjectId("6539e43a37e822702520cc9a"),
+    '5': ObjectId("6539e43a37e822702520cc9b")
+  }
+}
+Order_det> db.Order_det.find().pretty()
+[
+  {
+    _id: ObjectId("6539e43a37e822702520cc96"),
+    Orderid: 101,
+    Customerid: 11,
+    Order_datetime: ISODate("2023-10-11T19:17:16.123Z"),
+    Shipped_datetime: ISODate("2023-10-13T20:18:17.234Z"),
+    Total_amount: '8050.23'
+  },
+  {
+    _id: ObjectId("6539e43a37e822702520cc97"),
+    Orderid: 102,
+    Customerid: 22,
+    Order_datetime: ISODate("2023-10-12T18:20:16.123Z"),
+    Shipped_datetime: ISODate("2023-10-14T19:18:17.234Z"),
+    Total_amount: '9000.23'
+  },
+  {
+    _id: ObjectId("6539e43a37e822702520cc98"),
+    Orderid: 103,
+    Customerid: 33,
+    Order_datetime: ISODate("2023-10-13T21:11:16.123Z"),
+    Shipped_datetime: ISODate("2023-10-15T22:18:17.234Z"),
+    Total_amount: '7500.23'
+  },
+  {
+    _id: ObjectId("6539e43a37e822702520cc99"),
+    Orderid: 104,
+    Customerid: 44,
+    Order_datetime: ISODate("2023-10-18T07:17:16.123Z"),
+    Shipped_datetime: ISODate("2023-10-21T09:18:17.234Z"),
+    Total_amount: '10000.23'
+  },
+  {
+    _id: ObjectId("6539e43a37e822702520cc9a"),
+    Orderid: 105,
+    Customerid: 55,
+    Order_datetime: ISODate("2023-10-22T01:17:16.123Z"),
+    Shipped_datetime: ISODate("2023-10-24T08:18:17.234Z"),
+    Total_amount: '5000.23'
+  },
+  {
+    _id: ObjectId("6539e43a37e822702520cc9b"),
+    Orderid: 106,
+    Customerid: 66,
+    Order_datetime: ISODate("2023-10-23T12:17:16.123Z"),
+    Shipped_datetime: ISODate("2023-10-25T11:18:17.234Z"),
+    Total_amount: '7890.23'
+  }
+]
+Order_det> use Employee
+switched to db Employee
+Employee> db.createCollection('emp_det');
+{ ok: 1 }
+Employee> use emp_det
+switched to db emp_det
+emp_det> db.emp_det.insertMany([{empid:1,ename:'Zenith'},{empid:2,ename:'Xavier'},{empid:3,ename:'Warren'},{empid:4,ename:'Vetri'},{empid:5,ename:'Udhaya'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6539fb0f37e822702520cc9c"),
+    '1': ObjectId("6539fb0f37e822702520cc9d"),
+    '2': ObjectId("6539fb0f37e822702520cc9e"),
+    '3': ObjectId("6539fb0f37e822702520cc9f"),
+    '4': ObjectId("6539fb0f37e822702520cca0")
+  }
+}
+emp_det> db.emp_det.drop()
+true
+emp_det> db.dropdatabase
+emp_det.dropdatabase
+emp_det> db.Dropdatabase
+emp_det.Dropdatabase
+emp_det> show databases
+Customer        48.00 KiB
+Employee         8.00 KiB
+Mystore         56.00 KiB
+Order_det      112.00 KiB
+Order_details    8.00 KiB
+Student         88.00 KiB
+admin           40.00 KiB
+config         108.00 KiB
+local           40.00 KiB
+test            96.00 KiB
+emp_det> db.emp_det.find()

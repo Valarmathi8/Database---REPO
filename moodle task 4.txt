@@ -1,0 +1,70 @@
+db.createCollection("product_details")
+use Product_details
+Product_details>  db.Product_details.insertMany([{_id:1,product_id:10,product_name:'iphone 7',price:20000,no_quantity:5,company_name:{name:'iphone',purchase_date:'2022-11-01'}}),{_id:2,product_id:20,product_name:'apple iphone',price:80000,no_quantity:10,company_name:{name:'apple',purchase_date:'2022-12-01'}},{_id:3,product_id:30,product_name:'VIVO Y35',price:10000,no_quantity:5,company_name:{name:'VIVO',purchase_date:'2023-01-01'}},{_id:4,product_id:40,product_name:'OPPO 12',price:25000,no_quantity:10,company_name:{name:'OPPO',purchase_date:'2023-02-01'}},{_id:5,product_id:50,product_name:'iphone7',price:90000,no_quantity:5,company_name:{name:'iphone',purchase_date:'2023-03-01'}},{_id:6,product_id:60,product_name:'galaxy 35',price:38000,no_quantity:10,company_name:{name:'zen mobiles',purchase_date:'2023-04-01'}},{_id:7,product_id:70,product_name:'VIVO Y35',price:67000,no_quantity:5,company_name:{name:'VIVO',purchase_date:'2023-05-01'}},{_id:8,product_id:80,product_name:'one plus',price:22000,no_quantity:10,company_name:{name:'celkon mobiles',purchase_date:'2023-06-01'}},{_id:9,product_id:90,product_name:'samsung 15',price:18000,no_quantity:5,company_name:{name:'samsung',purchase_date:'2023-07-01'}},{_id:10,product_id:100,product_name:'iphone7',price:21000,no_quantity:10,company_name:{name:'iphone',purchase_date:'2023-08-01'}},{_id:11,product_id:110,product_name:'redmi 6',price:11000,no_quantity:5,company_name:{name:'micromax',purchase_date:'2023-09-19'}},{_id:12,product_id:120,product_name:'OPPO 12',price:30000,no_quantity:10,company_name:{name:'OPPO',purchase_date:'2023-10-01'}}])
+Product_details> db.Product_details.aggregate([{$group:{_id:{ product_name:'$ product_name'},"total_price:":{$sum:"$price"}}}])
+[ { _id: { product_name: null }, 'total_price:': 432000 } ]
+Product_details> db.Product_details.aggregate([{$group:{_id:{ product_name:'$ product_name'},"total_price:":{$sum:"$price"},"average_price:":{$avg:"$price"}}}])
+[
+  {
+    _id: { product_name: null },
+    'total_price:': 432000,
+    'average_price:': 36000
+  }
+]
+Product_details> db.Product_details.aggregate([{$group:{_id:{company_name:'$company_name'}}},{$sort:{company_name:1}}])
+[
+  {
+    _id: { company_name: { name: 'VIVO', purchase_date: '2023-01-01' } }
+  },
+  {
+    _id: { company_name: { name: 'iphone', purchase_date: '2022-11-01' } }
+  },
+  {
+    _id: { company_name: { name: 'VIVO', purchase_date: '2023-05-01' } }
+  },
+  {
+    _id: { company_name: { name: 'OPPO', purchase_date: '2023-10-01' } }
+  },
+  {
+    _id: { company_name: { name: 'iphone', purchase_date: '2023-08-01' } }
+  },
+  {
+    _id: { company_name: { name: 'iphone', purchase_date: '2023-03-01' } }
+  },
+  {
+    _id: { company_name: { name: 'apple', purchase_date: '2022-12-01' } }
+  },
+  {
+    _id: {
+      company_name: { name: 'celkon mobiles', purchase_date: '2023-06-01' }
+    }
+  },
+  {
+    _id: { company_name: { name: 'samsung', purchase_date: '2023-07-01' } }
+  },
+  {
+    _id: { company_name: { name: 'OPPO', purchase_date: '2023-02-01' } }
+  },
+  {
+    _id: { company_name: { name: 'micromax', purchase_date: '2023-09-19' } }
+  },
+  {
+    _id: {
+      company_name: { name: 'zen mobiles', purchase_date: '2023-04-01' }
+    }
+  }
+]
+Product_details> db.Product_details.aggregate([{$group:{_id:{company_name:'$company_name.name'}}},{$sort:{company_name:1}}])
+[
+  { _id: { company_name: 'zen mobiles' } },
+  { _id: { company_name: 'samsung' } },
+  { _id: { company_name: 'OPPO' } },
+  { _id: { company_name: 'iphone' } },
+  { _id: { company_name: 'VIVO' } },
+  { _id: { company_name: 'celkon mobiles' } },
+  { _id: { company_name: 'apple' } },
+  { _id: { company_name: 'micromax' } }
+
+
+
+

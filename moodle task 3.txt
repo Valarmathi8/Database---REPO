@@ -1,0 +1,751 @@
+Student_details> db.Student_details.find({$and:[{},{m1:{$gt:40},m2:{$gt:40},m3:{$gt:40}}]})
+[
+  {
+    _id: ObjectId("653a9515140777271bf51a7f"),
+    name: 'Charulatha',
+    course: 'Maths',
+    m1: 60,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Algebra', 'Statistics', 'Probability' ],
+    personal: {
+      age: 23,
+      dob: '1998-11-02',
+      father_name: 'Chandru',
+      mobile_number: 1234567892,
+      email_id: 'charu12@gmail.com',
+      address: 'Ooty'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a80"),
+    name: 'Deepa',
+    course: 'History',
+    m1: 80,
+    m2: 80,
+    m3: 70,
+    subjects: [ 'Ancient', 'Civics', 'Economics' ],
+    personal: {
+      age: 22,
+      dob: '1999-12-04',
+      father_name: 'Dheeran',
+      mobile_number: 1234567893,
+      email_id: 'deepa12@gmail.com',
+      address: 'Madurai'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a81"),
+    name: 'Elizabeth',
+    course: 'cs',
+    m1: 90,
+    m2: 85,
+    m3: 73,
+    subjects: [ 'sql', 'c', 'c++' ],
+    personal: {
+      age: 21,
+      dob: '2002-01-09',
+      father_name: 'Elizh',
+      mobile_number: 1234567894,
+      email_id: 'eliza12@gmail.com',
+      address: 'Salem'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a82"),
+    name: 'Fathima',
+    course: 'Zoology',
+    m1: 70,
+    m2: 80,
+    m3: 75,
+    subjects: [ 'Zoo', 'Anime', 'ology' ],
+    personal: {
+      age: 24,
+      dob: '1997-12-02',
+      father_name: 'Farith',
+      mobile_number: 1234567895,
+      email_id: 'fathima12@gmail.com',
+      address: 'Palladam'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a83"),
+    name: 'Gayu',
+    course: 'ECE',
+    m1: 66,
+    m2: 77,
+    m3: 88,
+    subjects: [ 'Electronics', 'Current', 'Magnet' ],
+    personal: {
+      age: 22,
+      dob: '2001-09-08',
+      father_name: 'Guru',
+      mobile_number: 1234567896,
+      email_id: 'gayu12@gmail.com',
+      address: 'Tiruppur'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a84"),
+    name: 'Harini',
+    course: 'ECE',
+    m1: 98,
+    m2: 97,
+    m3: 96,
+    subjects: [ 'Electronics', 'Current', 'Magnet' ],
+    personal: {
+      age: 20,
+      dob: '2000-01-16',
+      father_name: 'Hari',
+      mobile_number: 1234567897,
+      email_id: 'harini12@gmail.com',
+      address: 'Namakkal'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a85"),
+    name: 'Ishu',
+    course: 'CSE',
+    m1: 70,
+    m2: 71,
+    m3: 72,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 22,
+      dob: '1999-03-15',
+      father_name: 'Imran',
+      mobile_number: 1234567898,
+      email_id: 'ishu12@gmail.com',
+      address: 'Theni'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a86"),
+    name: 'Sachin',
+    course: 'CSE',
+    m1: 69,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 23,
+      dob: '1997-04-12',
+      father_name: 'Sakthi',
+      mobile_number: 1234567899,
+      email_id: 'sachin12@gmail.com',
+      address: 'Cbe'
+    }
+  }
+]
+Student_details> db.Student_details.insertMany([{name:'Trisha',course:'M&W',m1:23,m2:30,m3:25,subjects:["c","c++","java"],personal:{age:21,dob:'2002-09-13',father_name:'Tipu',mobile_number:1234567880,email_id:'trisha12@gmail.com',address:'Palladam'}},{name:'Uyir',course:'Biotech',m1:12,m2:15,m3:22,subjects:["Zoology","Biology","Practical"],personal:{age:24,dob:'2000-08-07',father_name:'Udhaya',mobile_number:1234567882,email_id:'urir12@gmail.com',address:'Kodaikanal'}}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("653df448250669893e403ff2"),
+    '1': ObjectId("653df448250669893e403ff3")
+  }
+}
+Student_details> db.Student_
+Student_details.Student_
+Student_details> db.Student_details.find()
+[
+  {
+    _id: ObjectId("653a7e6b140777271bf51a7d"),
+    name: 'Asha',
+    course: 'Tamil',
+    m1: 40,
+    m2: 50,
+    m3: 60,
+    subjects: [ 'Seiyul', 'Illakanam', 'Urainadai' ],
+    personal: {
+      age: 20,
+      dob: '2000-01-02',
+      father_name: 'Aathi',
+      mobile_number: 1234567890,
+      email_id: 'asha12@gmail.com',
+      address: 'Cbe'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a7e"),
+    name: 'Brindha',
+    course: 'English',
+    m1: 40,
+    m2: 40,
+    m3: 50,
+    subjects: [ 'prose', 'poem', 'grammar' ],
+    personal: {
+      age: 21,
+      dob: '2001-10-23',
+      father_name: 'Bala',
+      mobile_number: 1234567891,
+      email_id: 'brindha12@gmail.com',
+      address: 'Cbe'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a7f"),
+    name: 'Charulatha',
+    course: 'Maths',
+    m1: 60,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Algebra', 'Statistics', 'Probability' ],
+    personal: {
+      age: 23,
+      dob: '1998-11-02',
+      father_name: 'Chandru',
+      mobile_number: 1234567892,
+      email_id: 'charu12@gmail.com',
+      address: 'Ooty'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a80"),
+    name: 'Deepa',
+    course: 'History',
+    m1: 80,
+    m2: 80,
+    m3: 70,
+    subjects: [ 'Ancient', 'Civics', 'Economics' ],
+    personal: {
+      age: 22,
+      dob: '1999-12-04',
+      father_name: 'Dheeran',
+      mobile_number: 1234567893,
+      email_id: 'deepa12@gmail.com',
+      address: 'Madurai'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a81"),
+    name: 'Elizabeth',
+    course: 'cs',
+    m1: 90,
+    m2: 85,
+    m3: 73,
+    subjects: [ 'sql', 'c', 'c++' ],
+    personal: {
+      age: 21,
+      dob: '2002-01-09',
+      father_name: 'Elizh',
+      mobile_number: 1234567894,
+      email_id: 'eliza12@gmail.com',
+      address: 'Salem'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a82"),
+    name: 'Fathima',
+    course: 'Zoology',
+    m1: 70,
+    m2: 80,
+    m3: 75,
+    subjects: [ 'Zoo', 'Anime', 'ology' ],
+    personal: {
+      age: 24,
+      dob: '1997-12-02',
+      father_name: 'Farith',
+      mobile_number: 1234567895,
+      email_id: 'fathima12@gmail.com',
+      address: 'Palladam'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a83"),
+    name: 'Gayu',
+    course: 'ECE',
+    m1: 66,
+    m2: 77,
+    m3: 88,
+    subjects: [ 'Electronics', 'Current', 'Magnet' ],
+    personal: {
+      age: 22,
+      dob: '2001-09-08',
+      father_name: 'Guru',
+      mobile_number: 1234567896,
+      email_id: 'gayu12@gmail.com',
+      address: 'Tiruppur'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a84"),
+    name: 'Harini',
+    course: 'ECE',
+    m1: 98,
+    m2: 97,
+    m3: 96,
+    subjects: [ 'Electronics', 'Current', 'Magnet' ],
+    personal: {
+      age: 20,
+      dob: '2000-01-16',
+      father_name: 'Hari',
+      mobile_number: 1234567897,
+      email_id: 'harini12@gmail.com',
+      address: 'Namakkal'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a85"),
+    name: 'Ishu',
+    course: 'CSE',
+    m1: 70,
+    m2: 71,
+    m3: 72,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 22,
+      dob: '1999-03-15',
+      father_name: 'Imran',
+      mobile_number: 1234567898,
+      email_id: 'ishu12@gmail.com',
+      address: 'Theni'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a86"),
+    name: 'Sachin',
+    course: 'CSE',
+    m1: 69,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 23,
+      dob: '1997-04-12',
+      father_name: 'Sakthi',
+      mobile_number: 1234567899,
+      email_id: 'sachin12@gmail.com',
+      address: 'Cbe'
+    }
+  },
+  {
+    _id: ObjectId("653df448250669893e403ff2"),
+    name: 'Trisha',
+    course: 'M&W',
+    m1: 23,
+    m2: 30,
+    m3: 25,
+    subjects: [ 'c', 'c++', 'java' ],
+    personal: {
+      age: 21,
+      dob: '2002-09-13',
+      father_name: 'Tipu',
+      mobile_number: 1234567880,
+      email_id: 'trisha12@gmail.com',
+      address: 'Palladam'
+    }
+  },
+  {
+    _id: ObjectId("653df448250669893e403ff3"),
+    name: 'Uyir',
+    course: 'Biotech',
+    m1: 12,
+    m2: 15,
+    m3: 22,
+    subjects: [ 'Zoology', 'Biology', 'Practical' ],
+    personal: {
+      age: 24,
+      dob: '2000-08-07',
+      father_name: 'Udhaya',
+      mobile_number: 1234567882,
+      email_id: 'urir12@gmail.com',
+      address: 'Kodaikanal'
+    }
+  }
+]
+Student_details> db.Student_details.find({m1:{$lt:40},m2:{$lt:40},m3:{$lt:40}},{name:1,course:1})
+[
+  {
+    _id: ObjectId("653df448250669893e403ff2"),
+    name: 'Trisha',
+    course: 'M&W'
+  },
+  {
+    _id: ObjectId("653df448250669893e403ff3"),
+    name: 'Uyir',
+    course: 'Biotech'
+  }
+]
+Student_details> db.Student_details.find({$and:[{m1:{$lte:40},m2:{$gt:41},m3:{$gt:41}},{name:1,course:1}]})
+
+Student_details> db.Student_details.find({m1:{$lte:40},m2:{$gt:41},m3:{$gt:41}},{name:1,course:1})
+[
+  {
+    _id: ObjectId("653a7e6b140777271bf51a7d"),
+    name: 'Asha',
+    course: 'Tamil'
+  }
+]
+Student_details> db.Student_details.find({subjects:{$in:["Python","Java"]}})
+[
+  {
+    _id: ObjectId("653a9515140777271bf51a85"),
+    name: 'Ishu',
+    course: 'CSE',
+    m1: 70,
+    m2: 71,
+    m3: 72,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 22,
+      dob: '1999-03-15',
+      father_name: 'Imran',
+      mobile_number: 1234567898,
+      email_id: 'ishu12@gmail.com',
+      address: 'Theni'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a86"),
+    name: 'Sachin',
+    course: 'CSE',
+    m1: 69,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 23,
+      dob: '1997-04-12',
+      father_name: 'Sakthi',
+      mobile_number: 1234567899,
+      email_id: 'sachin12@gmail.com',
+      address: 'Cbe'
+    }
+  }
+]
+Student_details> db.Student_details.find({"personal.age":{$lt:23}})
+[
+  {
+    _id: ObjectId("653a7e6b140777271bf51a7d"),
+    name: 'Asha',
+    course: 'Tamil',
+    m1: 40,
+    m2: 50,
+    m3: 60,
+    subjects: [ 'Seiyul', 'Illakanam', 'Urainadai' ],
+    personal: {
+      age: 20,
+      dob: '2000-01-02',
+      father_name: 'Aathi',
+      mobile_number: 1234567890,
+      email_id: 'asha12@gmail.com',
+      address: 'Cbe'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a7e"),
+    name: 'Brindha',
+    course: 'English',
+    m1: 40,
+    m2: 40,
+    m3: 50,
+    subjects: [ 'prose', 'poem', 'grammar' ],
+    personal: {
+      age: 21,
+      dob: '2001-10-23',
+      father_name: 'Bala',
+      mobile_number: 1234567891,
+      email_id: 'brindha12@gmail.com',
+      address: 'Cbe'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a80"),
+    name: 'Deepa',
+    course: 'History',
+    m1: 80,
+    m2: 80,
+    m3: 70,
+    subjects: [ 'Ancient', 'Civics', 'Economics' ],
+    personal: {
+      age: 22,
+      dob: '1999-12-04',
+      father_name: 'Dheeran',
+      mobile_number: 1234567893,
+      email_id: 'deepa12@gmail.com',
+      address: 'Madurai'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a81"),
+    name: 'Elizabeth',
+    course: 'cs',
+    m1: 90,
+    m2: 85,
+    m3: 73,
+    subjects: [ 'sql', 'c', 'c++' ],
+    personal: {
+      age: 21,
+      dob: '2002-01-09',
+      father_name: 'Elizh',
+      mobile_number: 1234567894,
+      email_id: 'eliza12@gmail.com',
+      address: 'Salem'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a83"),
+    name: 'Gayu',
+    course: 'ECE',
+    m1: 66,
+    m2: 77,
+    m3: 88,
+    subjects: [ 'Electronics', 'Current', 'Magnet' ],
+    personal: {
+      age: 22,
+      dob: '2001-09-08',
+      father_name: 'Guru',
+      mobile_number: 1234567896,
+      email_id: 'gayu12@gmail.com',
+      address: 'Tiruppur'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a84"),
+    name: 'Harini',
+    course: 'ECE',
+    m1: 98,
+    m2: 97,
+    m3: 96,
+    subjects: [ 'Electronics', 'Current', 'Magnet' ],
+    personal: {
+      age: 20,
+      dob: '2000-01-16',
+      father_name: 'Hari',
+      mobile_number: 1234567897,
+      email_id: 'harini12@gmail.com',
+      address: 'Namakkal'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a85"),
+    name: 'Ishu',
+    course: 'CSE',
+    m1: 70,
+    m2: 71,
+    m3: 72,
+    subjects: [ 'Python', 'Java', 'Mysql' ],
+    personal: {
+      age: 22,
+      dob: '1999-03-15',
+      father_name: 'Imran',
+      mobile_number: 1234567898,
+      email_id: 'ishu12@gmail.com',
+      address: 'Theni'
+    }
+  },
+  {
+    _id: ObjectId("653df448250669893e403ff2"),
+    name: 'Trisha',
+    course: 'M&W',
+    m1: 23,
+    m2: 30,
+    m3: 25,
+    subjects: [ 'c', 'c++', 'java' ],
+    personal: {
+      age: 21,
+      dob: '2002-09-13',
+      father_name: 'Tipu',
+      mobile_number: 1234567880,
+      email_id: 'trisha12@gmail.com',
+      address: 'Palladam'
+    }
+  }
+]
+Student_details> db.Student_details find({}).limit(2);
+Uncaught:
+SyntaxError: Missing semicolon. (1:18)
+
+> 1 | db.Student_details find({}).limit(2);
+    |                   ^
+  2 |
+
+Student_details> db.Student_details.find({}).limit(2);
+[
+  {
+    _id: ObjectId("653a7e6b140777271bf51a7d"),
+    name: 'Asha',
+    course: 'Tamil',
+    m1: 40,
+    m2: 50,
+    m3: 60,
+    subjects: [ 'Seiyul', 'Illakanam', 'Urainadai' ],
+    personal: {
+      age: 20,
+      dob: '2000-01-02',
+      father_name: 'Aathi',
+      mobile_number: 1234567890,
+      email_id: 'asha12@gmail.com',
+      address: 'Cbe'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a7e"),
+    name: 'Brindha',
+    course: 'English',
+    m1: 40,
+    m2: 40,
+    m3: 50,
+    subjects: [ 'prose', 'poem', 'grammar' ],
+    personal: {
+      age: 21,
+      dob: '2001-10-23',
+      father_name: 'Bala',
+      mobile_number: 1234567891,
+      email_id: 'brindha12@gmail.com',
+      address: 'Cbe'
+    }
+  }
+]
+Student_details> db.Student_details.find({}).limit(2).skip(2)
+[
+  {
+    _id: ObjectId("653a9515140777271bf51a7f"),
+    name: 'Charulatha',
+    course: 'Maths',
+    m1: 60,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Algebra', 'Statistics', 'Probability' ],
+    personal: {
+      age: 23,
+      dob: '1998-11-02',
+      father_name: 'Chandru',
+      mobile_number: 1234567892,
+      email_id: 'charu12@gmail.com',
+      address: 'Ooty'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a80"),
+    name: 'Deepa',
+    course: 'History',
+    m1: 80,
+    m2: 80,
+    m3: 70,
+    subjects: [ 'Ancient', 'Civics', 'Economics' ],
+    personal: {
+      age: 22,
+      dob: '1999-12-04',
+      father_name: 'Dheeran',
+      mobile_number: 1234567893,
+      email_id: 'deepa12@gmail.com',
+      address: 'Madurai'
+    }
+  }
+]
+Student_details> db.Student_details.find({},{name:1}).sort({name:1})
+[
+  { _id: ObjectId("653a7e6b140777271bf51a7d"), name: 'Asha' },
+  { _id: ObjectId("653a9515140777271bf51a7e"), name: 'Brindha' },
+  { _id: ObjectId("653a9515140777271bf51a7f"), name: 'Charulatha' },
+  { _id: ObjectId("653a9515140777271bf51a80"), name: 'Deepa' },
+  { _id: ObjectId("653a9515140777271bf51a81"), name: 'Elizabeth' },
+  { _id: ObjectId("653a9515140777271bf51a82"), name: 'Fathima' },
+  { _id: ObjectId("653a9515140777271bf51a83"), name: 'Gayu' },
+  { _id: ObjectId("653a9515140777271bf51a84"), name: 'Harini' },
+  { _id: ObjectId("653a9515140777271bf51a85"), name: 'Ishu' },
+  { _id: ObjectId("653a9515140777271bf51a86"), name: 'Sachin' },
+  { _id: ObjectId("653df448250669893e403ff2"), name: 'Trisha' },
+  { _id: ObjectId("653df448250669893e403ff3"), name: 'Uyir' }
+]
+Student_details> db.Student_details.find({},{name:1}).sort({name:-1})
+[
+  { _id: ObjectId("653df448250669893e403ff3"), name: 'Uyir' },
+  { _id: ObjectId("653df448250669893e403ff2"), name: 'Trisha' },
+  { _id: ObjectId("653a9515140777271bf51a86"), name: 'Sachin' },
+  { _id: ObjectId("653a9515140777271bf51a85"), name: 'Ishu' },
+  { _id: ObjectId("653a9515140777271bf51a84"), name: 'Harini' },
+  { _id: ObjectId("653a9515140777271bf51a83"), name: 'Gayu' },
+  { _id: ObjectId("653a9515140777271bf51a82"), name: 'Fathima' },
+  { _id: ObjectId("653a9515140777271bf51a81"), name: 'Elizabeth' },
+  { _id: ObjectId("653a9515140777271bf51a80"), name: 'Deepa' },
+  { _id: ObjectId("653a9515140777271bf51a7f"), name: 'Charulatha' },
+  { _id: ObjectId("653a9515140777271bf51a7e"), name: 'Brindha' },
+  { _id: ObjectId("653a7e6b140777271bf51a7d"), name: 'Asha' }
+]
+Student_details> db.Student_details.aggregate({$sort:{"personal.dob":1}},{$project:{name:1}})
+[
+  { _id: ObjectId("653a9515140777271bf51a86"), name: 'Sachin' },
+  { _id: ObjectId("653a9515140777271bf51a82"), name: 'Fathima' },
+  { _id: ObjectId("653a9515140777271bf51a7f"), name: 'Charulatha' },
+  { _id: ObjectId("653a9515140777271bf51a85"), name: 'Ishu' },
+  { _id: ObjectId("653a9515140777271bf51a80"), name: 'Deepa' },
+  { _id: ObjectId("653a7e6b140777271bf51a7d"), name: 'Asha' },
+  { _id: ObjectId("653a9515140777271bf51a84"), name: 'Harini' },
+  { _id: ObjectId("653df448250669893e403ff3"), name: 'Uyir' },
+  { _id: ObjectId("653a9515140777271bf51a83"), name: 'Gayu' },
+  { _id: ObjectId("653a9515140777271bf51a7e"), name: 'Brindha' },
+  { _id: ObjectId("653a9515140777271bf51a81"), name: 'Elizabeth' },
+  { _id: ObjectId("653df448250669893e403ff2"), name: 'Trisha' }
+]
+Student_details> db.Student_details.aggregate({$sort:{"personal.dob":-1}},{$project:{name:1}})
+[
+  { _id: ObjectId("653df448250669893e403ff2"), name: 'Trisha' },
+  { _id: ObjectId("653a9515140777271bf51a81"), name: 'Elizabeth' },
+  { _id: ObjectId("653a9515140777271bf51a7e"), name: 'Brindha' },
+  { _id: ObjectId("653a9515140777271bf51a83"), name: 'Gayu' },
+  { _id: ObjectId("653df448250669893e403ff3"), name: 'Uyir' },
+  { _id: ObjectId("653a9515140777271bf51a84"), name: 'Harini' },
+  { _id: ObjectId("653a7e6b140777271bf51a7d"), name: 'Asha' },
+  { _id: ObjectId("653a9515140777271bf51a80"), name: 'Deepa' },
+  { _id: ObjectId("653a9515140777271bf51a85"), name: 'Ishu' },
+  { _id: ObjectId("653a9515140777271bf51a7f"), name: 'Charulatha' },
+  { _id: ObjectId("653a9515140777271bf51a82"), name: 'Fathima' },
+  { _id: ObjectId("653a9515140777271bf51a86"), name: 'Sachin' }
+]
+Student_details> db.Student_details.find({}).limit(3).skip(2)
+[
+  {
+    _id: ObjectId("653a9515140777271bf51a7f"),
+    name: 'Charulatha',
+    course: 'Maths',
+    m1: 60,
+    m2: 70,
+    m3: 80,
+    subjects: [ 'Algebra', 'Statistics', 'Probability' ],
+    personal: {
+      age: 23,
+      dob: '1998-11-02',
+      father_name: 'Chandru',
+      mobile_number: 1234567892,
+      email_id: 'charu12@gmail.com',
+      address: 'Ooty'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a80"),
+    name: 'Deepa',
+    course: 'History',
+    m1: 80,
+    m2: 80,
+    m3: 70,
+    subjects: [ 'Ancient', 'Civics', 'Economics' ],
+    personal: {
+      age: 22,
+      dob: '1999-12-04',
+      father_name: 'Dheeran',
+      mobile_number: 1234567893,
+      email_id: 'deepa12@gmail.com',
+      address: 'Madurai'
+    }
+  },
+  {
+    _id: ObjectId("653a9515140777271bf51a81"),
+    name: 'Elizabeth',
+    course: 'cs',
+    m1: 90,
+    m2: 85,
+    m3: 73,
+    subjects: [ 'sql', 'c', 'c++' ],
+    personal: {
+      age: 21,
+      dob: '2002-01-09',
+      father_name: 'Elizh',
+      mobile_number: 1234567894,
+      email_id: 'eliza12@gmail.com',
+      address: 'Salem'
+    }
+  }
+]

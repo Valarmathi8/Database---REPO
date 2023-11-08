@@ -1,0 +1,327 @@
+ use Customer_details
+switched to db Customer_details
+Customer_details> db.Customer_details.insertMany([{_id:1,name:'Aravind',address:[{D_no:1,loc:'chennai'},{D_no:2,loc:'covai'},{D_no:3,loc:'salem'}]},{_id:2,name:'Karthik',address:[{D_no:1,loc:'Theni'},{D_no:2,loc:'Namakkal'},{D_no:3,loc:'Trichy'}]},{_id:3,name:'Chandru',address:[{D_no:1,loc:'Ooty'},{D_no:2,loc:'Madurai'},{D_no:3,loc:'Thanjavur'}]}])
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2, '2': 3 } }
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 1, loc: 'chennai' },
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' }
+    ]
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [
+      { D_no: 1, loc: 'Theni' },
+      { D_no: 2, loc: 'Namakkal' },
+      { D_no: 3, loc: 'Trichy' }
+    ]
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ]
+  }
+]
+Customer_details> db.Customer_details.updateMany({name:'Aravind',name:'Karthik'},{$push:{address:[{D_no:4,loc:'Palakkad'},{D_no:5,loc:'Thirunelveli'}]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 1, loc: 'chennai' },
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' }
+    ]
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [
+      { D_no: 1, loc: 'Theni' },
+      { D_no: 2, loc: 'Namakkal' },
+      { D_no: 3, loc: 'Trichy' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ]
+  }
+]
+Customer_details> db.Customer_details.updateMany({name:'Aravind'},{$push:{address:[{D_no:4,loc:'Palakkad'},{D_no:5,loc:'Thirunelveli'}]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 1, loc: 'chennai' },
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [
+      { D_no: 1, loc: 'Theni' },
+      { D_no: 2, loc: 'Namakkal' },
+      { D_no: 3, loc: 'Trichy' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ]
+  }
+]
+Customer_details> db.Customer_details.updateOne({name:'Aravind'},{$pop:{address:-1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [
+      { D_no: 1, loc: 'Theni' },
+      { D_no: 2, loc: 'Namakkal' },
+      { D_no: 3, loc: 'Trichy' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ]
+  }
+]
+Customer_details> db.Customer_details.updateOne({name:'Karthik'},{$pop:{address:1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [
+      { D_no: 1, loc: 'Theni' },
+      { D_no: 2, loc: 'Namakkal' },
+      { D_no: 3, loc: 'Trichy' }
+    ]
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ]
+  }
+]
+Customer_details> db.Customer_details.updateOne({name:'Karthik'},{$pull:{address:{D_no:2,loc:'Namakkal'}}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ]
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [ { D_no: 1, loc: 'Theni' }, { D_no: 3, loc: 'Trichy' } ]
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ]
+  }
+]
+Customer_details> db.Customer_details.updateMany({},{$set:{discount:"Aadi sales"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 1,
+    name: 'Aravind',
+    address: [
+      { D_no: 2, loc: 'covai' },
+      { D_no: 3, loc: 'salem' },
+      [
+        { D_no: 4, loc: 'Palakkad' },
+        { D_no: 5, loc: 'Thirunelveli' }
+      ]
+    ],
+    discount: 'Aadi sales'
+  },
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [ { D_no: 1, loc: 'Theni' }, { D_no: 3, loc: 'Trichy' } ],
+    discount: 'Aadi sales'
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ],
+    discount: 'Aadi sales'
+  }
+]
+Customer_details> db.Customer_details.remove({name:'Aravind'})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 }
+Customer_details> db.Customer_details.find()
+[
+  {
+    _id: 2,
+    name: 'Karthik',
+    address: [ { D_no: 1, loc: 'Theni' }, { D_no: 3, loc: 'Trichy' } ],
+    discount: 'Aadi sales'
+  },
+  {
+    _id: 3,
+    name: 'Chandru',
+    address: [
+      { D_no: 1, loc: 'Ooty' },
+      { D_no: 2, loc: 'Madurai' },
+      { D_no: 3, loc: 'Thanjavur' }
+    ],
+    discount: 'Aadi sales'
+  }
+]
+Customer_details> db.Customer_details.drop()
+true
+Customer_details> db.dropDatabase();
+{ ok: 1, dropped: 'Customer_details' }
+Customer_details> show databases
+Customer          48.00 KiB
+Employee           8.00 KiB
+Mystore           56.00 KiB
+Order_det        112.00 KiB
+Order_details      8.00 KiB
+Product_details   40.00 KiB
+Student           88.00 KiB
+Student_details   72.00 KiB
+address            8.00 KiB
+admin             40.00 KiB
+config           108.00 KiB
+local             72.00 KiB
+products          56.00 KiB
+students          64.00 KiB
+test             224.00 KiB
